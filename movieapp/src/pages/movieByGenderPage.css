@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.movieListHeader {
+    background-color: black;
+    display: flex;
+    color: white;
+    size: 10px;
+    padding: 30px;
+}
+
+.genre::first-letter {
+    color: #FA0BFF;
+
+}
+
+.genre {
+    align-self: flex-start;
+    font-size: 50px;
+    padding-right: 82%;
+}
+
+.returnButton {
+    background-color: black;
+    align-self: right;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    border: #FA0BFF solid 1px;
+    border-radius: 8%;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: black;
+    color: white;
+    padding: 20px 90px;
+    justify-content: space-evenly;
+}
+.movies{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 40px;
+    padding-bottom: 100px ;
+    font-family: "Arial";
+    align-items: center;
+    background-color: #56555542;
+}
+.title{
+    padding: 16px;
+    font-weight: bold;
+}
