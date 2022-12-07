@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -17,7 +17,7 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -35,4 +35,19 @@
   to {
     transform: rotate(360deg);
   }
-}
+}*/
+
+/*h2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  align-content: space-around;
+  text-align: center;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  margin: 50px 100px;
+  padding: 20px;
+  order: 5;
+  background: radial-gradient(rgb(227, 128, 222) 0%, rgb(175, 145, 241) 90%);
+}*/
