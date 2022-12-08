@@ -6,14 +6,14 @@ import './movieByGenderPage.css';
 
 
 
-function MovieByGenrePage() {
+function MovieByGenrePage(props) {
 
     const urlGenre = `https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=en-EN&with_genres={idgenre}&primary_release_year=2022`
     const urlImg = `https://image.tmdb.org/t/p/original`;
     const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=en-EN`
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [page, setPage] = useState(0);
+    const [pages, setPages] = useState(0);
     const maxMovie = movies.length / 10
 
 
@@ -40,15 +40,16 @@ function MovieByGenrePage() {
 
 
 
+
     return (
         <>
             <header className='movieListHeader'>
-                <h1 className='genre'>|Science Fiction <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19spx" /></h1>
+                <h1 className='genre'>|{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <button className='returnButton'><img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" />   Volver</button>
             </header>
             <div className='container'>
 
-                {movies.slice(page * 12, (page + 1) * 12).map((movie) =>
+                {movies.slice(pages * 12, (pages + 1) * 12).map((movie) =>
                     <div className='movies'>
                         <img class="poster" src={urlImg + movie.poster_path} width="220px" />
                         <p className='title'>{movie.title}</p>
@@ -60,16 +61,15 @@ function MovieByGenrePage() {
             </div>
             <div id='btns'>
                 <button id="prev" onClick={() => {
-                    if (page > 0) {
-                        setPage(page - 1)
+                    if (pages > 0) {
+                        setPages(pages - 1)
                     }
-                }}> Anterior</button>
-                <p id='page'>{page+1}</p>
+                }}> <img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" /></button>
+                <p id='page'>{pages + 1}</p>
                 <button id='next' onClick={() => {
-                    if (page < (maxMovie) - 1) { setPage(page + 1) }
-                }}>Siguiente</button>
+                    if (pages < (maxMovie) - 1) { setPages(pages + 1) }
+                }}><img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="16px" /></button>
             </div >
-
         </>
     )
 }
