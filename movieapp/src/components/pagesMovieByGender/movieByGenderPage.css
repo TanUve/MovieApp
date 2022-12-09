@@ -3,7 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+.header{
+    font-family: "Julee";
+    background-color: black;
+    color: white;
+}
 .movieListHeader {
     background-color: black;
     display: flex;

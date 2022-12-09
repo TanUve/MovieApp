@@ -8,7 +8,7 @@ import './movieByGenderPage.css';
 
 function MovieByGenrePage(props) {
 
-    const urlGenre = `https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=en-EN&with_genres={idgenre}&primary_release_year=2022`
+    const urlGenre = `https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=en-EN&with_genres=10749&primary_release_year=2022&page=`
     const urlImg = `https://image.tmdb.org/t/p/original`;
     const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=en-EN`
     const [movies, setMovies] = useState([]);
@@ -37,24 +37,36 @@ function MovieByGenrePage(props) {
         }
         getGenreId();
     }, [])
+    
+    //Obtenemos las páginas
+    useEffect(() => {
+
+        const getMoviesData = async () => {
+            const respMovies = await axios.get(urlGenre);
+            setMovies(respMovies.data.results);
+            console.log(respMovies.data.results);
+        }
+        getMoviesData();
+    }, []);
 
 
 
 
     return (
         <>
-            <header className='movieListHeader'>
-                <h1 className='genre'>|{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+            <header className="header">Movies</header>
+            <div className='movieListHeader'>
+                <h1 className='genre'>|Acción{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <button className='returnButton'><img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" />   Volver</button>
-            </header>
+            </div>
             <div className='container'>
 
                 {movies.slice(pages * 12, (pages + 1) * 12).map((movie) =>
                     <div className='movies'>
-                        <img class="poster" src={urlImg + movie.poster_path} width="220px" />
+                        <img className="poster" src={urlImg + movie.poster_path} width="220px" />
                         <p className='title'>{movie.title}</p>
                         <p className='rating'>{movie.vote_average / 2} / 5</p>
-                        <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.05} max={5} readOnly />
+                        <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
                     </div>
                 )}
 
