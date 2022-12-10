@@ -1,14 +1,22 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+// import hooks
+import { useEffect, useState } from 'react';
+//import components
+import ReturnButton from '../buttons/ReturnButton';
+import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
-import './movieByGenderPage.css';
+//Import css
+import '../../styles/movieByGenrePage.css';
+import '../../styles/movieByGenrePage.css';
+import '../../styles/buscador.css'
+
 
 
 
 function MovieByGenrePage(props) {
 
-    const urlGenre = `https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=en-EN&with_genres=10749&primary_release_year=2022&page=`
+    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=en-EN&with_genres=10749&primary_release_year=2022&page=:pages`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
     const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=en-EN`
     const [movies, setMovies] = useState([]);
@@ -21,7 +29,7 @@ function MovieByGenrePage(props) {
     useEffect(() => {
 
         const getMoviesData = async () => {
-            const respMovies = await axios.get(urlGenre);
+            const respMovies = await axios.get(urlMovies);
             setMovies(respMovies.data.results);
             console.log(respMovies.data.results);
         }
@@ -37,18 +45,12 @@ function MovieByGenrePage(props) {
         }
         getGenreId();
     }, [])
-    
+
     //Obtenemos las páginas
-    useEffect(() => {
-
-        const getMoviesData = async () => {
-            const respMovies = await axios.get(urlGenre);
-            setMovies(respMovies.data.results);
-            console.log(respMovies.data.results);
-        }
-        getMoviesData();
-    }, []);
-
+    /* useEffect((page) => {
+ 
+     }, page);
+ */
 
 
 
@@ -57,12 +59,16 @@ function MovieByGenrePage(props) {
             <header className="header">Movies</header>
             <div className='movieListHeader'>
                 <h1 className='genre'>|Acción{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
-                <button className='returnButton'><img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" />   Volver</button>
+                <ReturnButton />
             </div>
+            <div className='search-box'><Buscador />
+            </div>
+
+
             <div className='container'>
 
                 {movies.slice(pages * 12, (pages + 1) * 12).map((movie) =>
-                    <div className='movies'>
+                    <div className='movies' key={movie.id}>
                         <img className="poster" src={urlImg + movie.poster_path} width="220px" />
                         <p className='title'>{movie.title}</p>
                         <p className='rating'>{movie.vote_average / 2} / 5</p>
@@ -77,7 +83,7 @@ function MovieByGenrePage(props) {
                         setPages(pages - 1)
                     }
                 }}> <img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" /></button>
-                <p id='page'>{pages + 1}</p>
+                <p id='page' onChange={() => { }} >{pages + 1}</p>
                 <button id='next' onClick={() => {
                     if (pages < (maxMovie) - 1) { setPages(pages + 1) }
                 }}><img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="16px" /></button>
