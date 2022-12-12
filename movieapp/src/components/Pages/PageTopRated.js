@@ -15,13 +15,13 @@ import '../../styles/topRated.css';
 
 function PageTopRated(props) {
 
-    const urlMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&page=1&region=ES`;
-    const urlImg = `https://image.tmdb.org/t/p/original`;
-    const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
 
     const [movies, setMovies] = useState([]);
-    const [genres, setGenres] = useState([]);
-    const [pages, setPages] = useState(0);
+    const [pages, setPages] = useState(1);
+
+    const urlMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&region=ES&page=${pages}`;
+    const urlImg = `https://image.tmdb.org/t/p/original`;
+
 
     //const navigate = useNavigate();
 
@@ -36,20 +36,8 @@ function PageTopRated(props) {
             console.log(respMovies.data.results);
         }
         getMoviesData();
-    }, [])
+    }, [pages])
 
-
-    //Obtenemos los géneros
-    useEffect(() => {
-        const getGenreId = async () => {
-            const respGenres = await axios.get(urlGenreId);
-            setGenres(respGenres.data);
-            console.log(respGenres.data.genres);
-        }
-        getGenreId();
-    }, [])
-
-    //Código nuevo, cuidado
 
 
 
@@ -67,7 +55,7 @@ function PageTopRated(props) {
 
             <div className='container'>
 
-                {movies.slice(pages * 12, (pages + 1) * 12).map((movie) =>
+                {movies.map((movie) =>
                     <div className='movies'>
                         <img className="poster" src={urlImg + movie.poster_path} width="220px" />
                         <p className='title'>{movie.title}</p>
@@ -83,15 +71,22 @@ function PageTopRated(props) {
                     if (pages > 0) {
                         setPages(pages - 1)
                     }
-                }}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" /></button>
-                <p id='page' onChange={() => { }} >
-                    {pages + 1}
+
+                }}
+                    disabled={pages <= 1 ? true : false}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" />
+                </button>
+
+                <p id='page' >
+                    {pages < 0 ? pages : pages} de 20
                 </p>
+
                 <button id='next' onClick={() => {
-                    if (pages < (maxMovie) - 1) { setPages(pages + 1) }
-                }}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="16px" /></button>
+                    setPages(pages + 1)
+                }}
+                    disabled={pages == 20 ? true : false} >
+                    <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="16px" />
+                </button>
             </div >
         </>
     )

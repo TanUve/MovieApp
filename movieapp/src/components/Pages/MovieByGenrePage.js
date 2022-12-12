@@ -15,18 +15,19 @@ import '../../styles/buscador.css'
 
 function MovieByGenrePage(props) {
 
-    const API_KEY='90c2c57ed9eabcec0ae2b8ebe7b81547';
-    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=28&primary_release_year=2022&page=2`;
-    const urlImg = `https://image.tmdb.org/t/p/original`;
-    const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
-
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
     const [pages, setPages] = useState(1);
 
+    const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
+    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=28&primary_release_year=2022&page=${pages}`;
+    const urlImg = `https://image.tmdb.org/t/p/original`;
+    const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
+
+
+
     //const navigate = useNavigate();
 
-    const maxMovie = movies.length / 10
 
 
     //Obtenemos todas las películas
@@ -37,8 +38,8 @@ function MovieByGenrePage(props) {
             console.log(respMovies.data.results);
         }
         getMoviesData();
-    }, [])
-   
+    }, [pages])
+
 
     //Obtenemos los géneros
     useEffect(() => {
@@ -72,13 +73,13 @@ function MovieByGenrePage(props) {
 
             <div className='container'>
 
-                {movies.slice(pages * 12, (pages + 1) * 12).map((movie) =>
+                {movies.map((movie) =>
                     <div className='movies'>
                         <img className="poster" src={urlImg + movie.poster_path} width="220px" />
                         <p className='title'>{movie.title}</p>
                         <p className='rating'>{movie.vote_average / 2} / 5</p>
                         <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
-                        <div key={movie.id}/>
+                        <div key={movie.id} />
                     </div>
                 )}
 
@@ -88,11 +89,22 @@ function MovieByGenrePage(props) {
                     if (pages > 0) {
                         setPages(pages - 1)
                     }
-                }}> <img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" /></button>
-                <p id='page' onChange={() => { }} >{pages +1}</p>
+
+                }}
+                    disabled={pages <= 1 ? true : false}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/8893/8893000.png' width="16px" />
+                </button>
+
+                <p id='page' >
+                    {pages < 0 ? pages : pages} de 20
+                </p>
+
                 <button id='next' onClick={() => {
-                    if (pages < (maxMovie) - 1) { setPages(pages + 1) }
-                }}><img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="16px" /></button>
+                    setPages(pages + 1)
+                }}
+                    disabled={pages == 20 ? true : false} >
+                    <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="16px" />
+                </button>
             </div >
         </>
     )
