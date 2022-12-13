@@ -14,17 +14,15 @@ import '../../styles/buscador.css'
 
 
 
-function MovieByGenrePage(props) {
+function NowPlaying(props) {
 
 
     const [movies, setMovies] = useState([]);
-    const [genres, setGenres] = useState([]);
     const [pages, setPages] = useState(1);
 
     const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
-    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=${props.genreId}&primary_release_year=2022&page=${pages}`;
+    const urlMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
-    const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
 
 
 
@@ -42,30 +40,11 @@ function MovieByGenrePage(props) {
         getMoviesData();
     }, [pages])
 
-
-    //Obtenemos los géneros
-    useEffect(() => {
-        const getGenreId = async () => {
-            const respGenres = await axios.get(urlGenreId);
-            setGenres(respGenres.data);
-            console.log(respGenres.data.genres);
-        }
-        getGenreId();
-    }, [])
-
-    //Código nuevo, cuidado
-
-
-
-
-
-
-
     return (
         <>
             <header className="header">Movies</header>
             <div className='movieListHeader'>
-                <h1 className='genre'>|Acción{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+                <h1 className='genre'>| Cartelera <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <ReturnButton />
             </div>
             <div className='search-box'>
@@ -115,7 +94,7 @@ function MovieByGenrePage(props) {
 }
 
 
-export default MovieByGenrePage;
+export default NowPlaying;
 
 
 /*API_KEY='90c2c57ed9eabcec0ae2b8ebe7b81547';*/

@@ -1,35 +1,31 @@
 import React from 'react';
 import axios from 'axios';
 // import hooks
-import { useEffect, useState, useNavigate } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 //import components
 import ReturnButton from '../buttons/ReturnButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
 //Import css
-import '../../styles/movieByGenrePage.css';
-import '../../styles/buscador.css'
+import '../../styles/topRated.css';
+
+//const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
 
 
 
-
-function MovieByGenrePage(props) {
+function TopRatedPage() {
 
 
     const [movies, setMovies] = useState([]);
-    const [genres, setGenres] = useState([]);
     const [pages, setPages] = useState(1);
 
-    const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
-    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=${props.genreId}&primary_release_year=2022&page=${pages}`;
+    const urlMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&region=ES&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
-    const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
-
 
 
     //const navigate = useNavigate();
 
+    const maxMovie = movies.length / 10
 
 
     //Obtenemos todas las películas
@@ -43,29 +39,13 @@ function MovieByGenrePage(props) {
     }, [pages])
 
 
-    //Obtenemos los géneros
-    useEffect(() => {
-        const getGenreId = async () => {
-            const respGenres = await axios.get(urlGenreId);
-            setGenres(respGenres.data);
-            console.log(respGenres.data.genres);
-        }
-        getGenreId();
-    }, [])
-
-    //Código nuevo, cuidado
-
-
-
-
-
 
 
     return (
         <>
             <header className="header">Movies</header>
-            <div className='movieListHeader'>
-                <h1 className='genre'>|Acción{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+            <div className='topRatedHeader'>
+                <h1 className='topRated'>|Mejor Valorado <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <ReturnButton />
             </div>
             <div className='search-box'>
@@ -77,13 +57,11 @@ function MovieByGenrePage(props) {
 
                 {movies.map((movie) =>
                     <div className='movies'>
-                        <Link to='/'>
-                            <img className="poster" src={urlImg + movie.poster_path} alt="SIN IMAGEN DISPONIBLE" width="220px" />
-                            <p className='title'>{movie.title}</p>
-                            <p className='rating'>{movie.vote_average / 2} / 5</p>
-                            <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
-                            <div key={movie.id} />
-                        </Link>
+                        <img className="poster" src={urlImg + movie.poster_path}  alt="SIN IMAGEN DISPONIBLE" width="220px" />
+                        <p className='title'>{movie.title}</p>
+                        <p className='rating'>{movie.vote_average / 2} / 5</p>
+                        <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
+                        <div key={movie.id} />
                     </div>
                 )}
 
@@ -115,7 +93,4 @@ function MovieByGenrePage(props) {
 }
 
 
-export default MovieByGenrePage;
-
-
-/*API_KEY='90c2c57ed9eabcec0ae2b8ebe7b81547';*/
+export default TopRatedPage;

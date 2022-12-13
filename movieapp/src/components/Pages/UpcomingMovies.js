@@ -14,7 +14,7 @@ import { display } from '@mui/system';
 
 
 
-function UpcomingMovies(props) {
+function UpcomingMovies() {
 
     const [movies, setMovies] = useState([]);
     const [pages, setPages] = useState(1);

@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 .header{
     font-family: "Julee";
@@ -113,4 +114,8 @@
     font-size: 20px;
     margin: 5px 30px;
 
+}
+a{
+    text-decoration: none !important;
+    color: white !important;
 }
