@@ -45,7 +45,7 @@ function TopRatedPage() {
         <>
             <header className="header">Movies</header>
             <div className='topRatedHeader'>
-                <h1 className='topRated'>|Mejor Valorado <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+                <h1 className='topRated'>|Mejor Valoradass <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <ReturnButton />
             </div>
             <div className='search-box'>

@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 // import hooks
 import { useEffect, useState, useNavigate } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 //import components
+import CarouselGenres from '../CarouselGenres';
 import ReturnButton from '../buttons/ReturnButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
@@ -18,11 +19,11 @@ function MovieByGenrePage(props) {
 
 
     const [movies, setMovies] = useState([]);
-    const [genres, setGenres] = useState([]);
+    const [genres, setGenres] = useState({});
     const [pages, setPages] = useState(1);
 
     const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
-    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=${props.genreId}&primary_release_year=2022&page=${pages}`;
+    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=28&primary_release_year=2022&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
     const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
 
@@ -43,21 +44,6 @@ function MovieByGenrePage(props) {
     }, [pages])
 
 
-    //Obtenemos los géneros
-    useEffect(() => {
-        const getGenreId = async () => {
-            const respGenres = await axios.get(urlGenreId);
-            setGenres(respGenres.data);
-            console.log(respGenres.data.genres);
-        }
-        getGenreId();
-    }, [])
-
-    //Código nuevo, cuidado
-
-
-
-
 
 
 
@@ -65,7 +51,7 @@ function MovieByGenrePage(props) {
         <>
             <header className="header">Movies</header>
             <div className='movieListHeader'>
-                <h1 className='genre'>|Acción{props.genderName} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+                <h1 className='genre'>|Acción <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <ReturnButton />
             </div>
             <div className='search-box'>
