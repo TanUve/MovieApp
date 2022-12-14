@@ -5,9 +5,10 @@ import UpcomingMovies from './components/Pages/UpcomingMovies';
 import NowPlaying from './components/Pages/NowPlaying.js';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
-import Carousel from './Carousel';
-/*import "react-image-gallery/styles/css/image-gallery.css";
-import ImageGallery from 'react-image-gallery'*/
+import BtnPremire from './Components/BtnPremiere';
+import CarouselGenres from './Components/CarouselGenres';
+import CarouselImagenes from './Components/CarouselImagenes';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   
