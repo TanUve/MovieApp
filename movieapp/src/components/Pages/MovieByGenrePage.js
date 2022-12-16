@@ -19,39 +19,33 @@ function MovieByGenrePage(props) {
 
 
     const [movies, setMovies] = useState([]);
-    const [genres, setGenres] = useState({});
+    const[genres, setGenres]= useState([])
     const [pages, setPages] = useState(1);
+    const {id,name}= useParams();
 
     const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
-    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=28&primary_release_year=2022&page=${pages}`;
+    const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=${id}&primary_release_year=2022&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
-    const urlGenreId = `https://api.themoviedb.org/3/genre/movie/list?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`
 
-
-
-    //const navigate = useNavigate();
-
-
-
+console.log(genres)
     //Obtenemos todas las películas
     useEffect(() => {
         const getMoviesData = async () => {
             const respMovies = await axios.get(urlMovies);
             setMovies(respMovies.data.results);
             console.log(respMovies.data.results);
+        
         }
         getMoviesData();
     }, [pages])
-
-
-
 
 
     return (
         <>
             <header className="header">Movies</header>
             <div className='movieListHeader'>
-                <h1 className='genre'>|Acción <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+
+                <h1 className='genre'>|{name} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <ReturnButton />
             </div>
             <div className='search-box'>

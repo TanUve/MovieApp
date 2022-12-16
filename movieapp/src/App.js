@@ -10,8 +10,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="genre/:id" element={<MovieByGenrePage />} />
-      
+      <Route path="genre/:id/:name" element={<MovieByGenrePage />} />
+  
       <Route path="upcoming/" element={<UpcomingMovies />} />
       <Route path="topRated/" element={<TopRatedPage />} />
       <Route path="now_playing/" element={<NowPlaying />} />
