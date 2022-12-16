@@ -5,8 +5,13 @@ import UpcomingMovies from './components/Pages/UpcomingMovies';
 import NowPlaying from './components/Pages/NowPlaying.js';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
+import BtnPremire from './Components/BtnPremiere';
+import CarouselGenres from './Components/CarouselGenres';
+import CarouselImagenes from './Components/CarouselImagenes';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
+  
   return (
     <Routes>
       <Route path="/" element={<Home />} />
