@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function BtnProximamente() {
 
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const [showPremiere, setShowPremiere] = useState(true);
     const [premiereData, setPremiereData] = useState([]);
 
@@ -16,7 +16,6 @@ function BtnProximamente() {
         }
         getPremiereData();
     }, []);
-    console.log(premiereData)
 
     function GoNewPage() {
         setShowPremiere(!showPremiere)
@@ -31,12 +30,12 @@ function BtnProximamente() {
             </div>
 
             <div id="separar">
-                    <button className='buttons' onClick={() => navigate('/topRated')}>Mejor valoradas</button>
+                <button className='buttons' onClick={() => navigate('/topRated')}>Mejor valoradas</button>
             </div>
 
 
             <div id="separar">
-                    <button className='buttons' onClick={() => navigate('/now_playing')}>Cartelera</button>
+                <button className='buttons' onClick={() => navigate('/now_playing')}>Cartelera</button>
             </div>
 
         </>

@@ -7,6 +7,7 @@ import Rating from '@mui/material/Rating';
 // import hooks
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import HomeButton from '../buttons/HomeButton';
 //import components
 
 
@@ -33,6 +34,7 @@ function MovieDetails() {
     return (
         <>
             <ReturnButton />
+            <HomeButton />
             <Buscador />
             <div>
                 <img className="poster" src={urlImg + movie.poster_path} alt="SIN IMAGEN DISPONIBLE" width="220px" />
@@ -40,7 +42,7 @@ function MovieDetails() {
                 <p>{movie.tagline}</p>
 
                 <p>{movie.overview}</p>
-                
+
                 <p className='rating'>{movie.vote_average / 2} / 5</p>
                 <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
             </div>

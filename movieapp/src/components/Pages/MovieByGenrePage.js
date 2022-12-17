@@ -10,6 +10,7 @@ import Rating from '@mui/material/Rating';
 //Import css
 import '../../styles/movieByGenrePage.css';
 import '../../styles/buscador.css'
+import HomeButton from '../buttons/HomeButton';
 
 
 
@@ -42,6 +43,7 @@ function MovieByGenrePage(props) {
             <div className='movieListHeader'>
 
                 <h1 className='genre'>|{name} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+                <HomeButton />
                 <ReturnButton />
             </div>
             <div className='search-box'>
