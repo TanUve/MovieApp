@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 // import hooks
-import { useEffect, useState, useNavigate } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 //import components
-import CarouselGenres from '../CarouselGenres';
 import ReturnButton from '../buttons/ReturnButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
@@ -17,24 +16,21 @@ import '../../styles/buscador.css'
 
 function MovieByGenrePage(props) {
 
+    const navigate = useNavigate();
 
     const [movies, setMovies] = useState([]);
-    const[genres, setGenres]= useState([])
     const [pages, setPages] = useState(1);
-    const {id,name}= useParams();
+    const { id, name } = useParams();
 
     const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
     const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=${id}&primary_release_year=2022&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
 
-console.log(genres)
     //Obtenemos todas las películas
     useEffect(() => {
         const getMoviesData = async () => {
             const respMovies = await axios.get(urlMovies);
             setMovies(respMovies.data.results);
-            console.log(respMovies.data.results);
-        
         }
         getMoviesData();
     }, [pages])
@@ -56,14 +52,14 @@ console.log(genres)
             <div className='container'>
 
                 {movies.map((movie) =>
-                    <div className='movies'>
-                        <Link to='/'>
+                    <div className='movies' >
+                        <div onClick={() => navigate(`/${movie.id}`)}>
                             <img className="poster" src={urlImg + movie.poster_path} alt="SIN IMAGEN DISPONIBLE" width="220px" />
                             <p className='title'>{movie.title}</p>
                             <p className='rating'>{movie.vote_average / 2} / 5</p>
                             <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
                             <div key={movie.id} />
-                        </Link>
+                        </div>
                     </div>
                 )}
 

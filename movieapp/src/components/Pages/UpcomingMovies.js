@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import ReturnButton from '../buttons/ReturnButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
+import { useNavigate } from 'react-router-dom';
 //Import css
 import '../../styles/upcomingMovies.css';
-import { display } from '@mui/system';
 
 //const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
 
@@ -16,6 +16,7 @@ import { display } from '@mui/system';
 
 function UpcomingMovies() {
 
+    const navigate= useNavigate();
     const [movies, setMovies] = useState([]);
     const [pages, setPages] = useState(1);
 
@@ -49,7 +50,7 @@ function UpcomingMovies() {
             <div className='container'>
 
                 {movies.map((movie) =>
-                    <div className='movies'>
+                    <div className='movies' onClick={()=>navigate(`/${movie.id}`)}>
                         <img className="poster" src={urlImg + movie.poster_path} alt="SIN IMAGEN DISPONIBLE" width="220px" />
                         <p className='title'>{movie.title}</p>
                         <p className='rating'>{movie.vote_average / 2} / 5</p>

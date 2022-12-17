@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function BtnProximamente() {
 
+    const navigate= useNavigate();
     const [showPremiere, setShowPremiere] = useState(true);
     const [premiereData, setPremiereData] = useState([]);
 
@@ -24,22 +25,18 @@ function BtnProximamente() {
     return (
         <>
             <div id="separar">
-                <Link to="upcoming/">
-                    <button className='buttons'>Proximamente</button>
-                </Link>
+
+                <button className='buttons' onClick={() => navigate('/upcoming')}>Proximamente</button>
+
             </div>
 
             <div id="separar">
-                <Link to="topRated">
-                    <button className='buttons'>Mejor valoradas</button>
-                </Link>
+                    <button className='buttons' onClick={() => navigate('/topRated')}>Mejor valoradas</button>
             </div>
 
 
             <div id="separar">
-                <Link to="now_playing/">
-                    <button className='buttons'>Cartelera</button>
-                </Link>
+                    <button className='buttons' onClick={() => navigate('/now_playing')}>Cartelera</button>
             </div>
 
         </>
