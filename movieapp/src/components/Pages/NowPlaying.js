@@ -7,10 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import ReturnButton from '../buttons/ReturnButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
+import HomeButton from '../buttons/HomeButton';
+
 //Import css
 import '../../styles/movieByGenrePage.css';
+import '../../styles/nowPlaying.css';
 import '../../styles/buscador.css'
-import HomeButton from '../buttons/HomeButton';
 
 
 
@@ -43,8 +45,8 @@ function NowPlaying(props) {
     return (
         <>
             <header className="header">Movies</header>
-            <div className='movieListHeader'>
-                <h1 className='genre'>| Cartelera <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+            <div className='nowPlayingHeader'>
+                <h1 className='nowPlaying'>| Cartelera <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <HomeButton />
                 <ReturnButton />
             </div>

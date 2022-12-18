@@ -1,16 +1,16 @@
-.topRatedHeader {
+.nowPlayingHeader {
     background-color: black;
     display: flex;
     color: white;
     padding: 30px 0 0 30px;
 }
 
-.topRated {
+.nowPlaying {
     font-size: 25px;
-    margin-right: 65%;
+    margin-right: 72%;
 }
 
-.topRated::first-letter {
+.nowPlaying::first-letter {
     color: #FA0BFF;
 
 }

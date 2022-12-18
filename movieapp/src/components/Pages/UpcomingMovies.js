@@ -2,14 +2,17 @@ import React from 'react';
 import axios from 'axios';
 // import hooks
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 //import components
 import ReturnButton from '../buttons/ReturnButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
-import { useNavigate } from 'react-router-dom';
+import HomeButton from '../buttons/HomeButton';
+
 //Import css
 import '../../styles/upcomingMovies.css';
-import HomeButton from '../buttons/HomeButton';
+import '../../styles/movieByGenrePage.css';
 
 //const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
 
@@ -40,8 +43,9 @@ function UpcomingMovies() {
             <header className="header">Movies</header>
             <div className='upcomingHeader'>
                 <h1 className='upcoming'>| Próximos estrenos <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
-                <ReturnButton />
                 <HomeButton />
+
+                <ReturnButton />
             </div>
             <div className='search-box'>
                 <Buscador />
