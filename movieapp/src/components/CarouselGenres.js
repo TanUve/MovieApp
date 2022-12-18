@@ -29,7 +29,7 @@ function CarouselGenres(movie) {
 
 
   /*función para las flechas*/
-  function SamplePrevArrow(props) {
+ /* function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
@@ -38,7 +38,7 @@ function CarouselGenres(movie) {
         onClick={onClick}
       />
     );
-  }
+  }*/
 
   /*Para el carrusel de las géneros*/
   const settingsGenres = {

@@ -1,5 +1,4 @@
-
-.moviesImages{
+.moviesImages {
     display: flex;
     padding: 1px 10px;
     background-color: #0c0c0c;
@@ -7,21 +6,21 @@
     height: 50%;
 }
 
-/*.poster{
+.poster {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     width: "100px";
     margin: 5px;
-    border: 1px rgb(16, 16, 16) ;
-}*/
+    border: 1px rgb(16, 16, 16);
+}
 
 
-.carousel_container{
-   
-    /* width: 100%; */
-    /*flex-direction: nowrap;
-    justify-content: space-around;*/
+.carousel_container {
+
+    width: 100%;
+    flex-direction: nowrap;
+    justify-content: space-around;
 }
 
 
@@ -37,7 +36,7 @@
     /*width: 156px;*/
 }
 
-.buttons{
+.buttons {
     color: #09010a !important;
     font-size: 20px;
     font-weight: 500;
@@ -47,7 +46,8 @@
     border-color: #b044b0;
     transition: all 1s ease;
     position: relative;
-    }
+}
+
 .boton3:hover {
     background: #318aac;
     color: #fff !important;
@@ -57,4 +57,3 @@
     padding: 3%;
     display: inline-block;
 }
-   

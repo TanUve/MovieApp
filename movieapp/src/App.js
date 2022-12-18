@@ -25,17 +25,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-      <BrowserRoutes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/movieByGenre' element={<MovieByGenrePage/>}/>
-        <Route/>
-        <Route/>
-      </BrowserRoutes>
-      
-
-
-
-*/

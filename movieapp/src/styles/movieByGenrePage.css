@@ -27,7 +27,7 @@
 .genre {
     align-self: flex-start;
     font-size: 30px;
-    margin-right: 82%;
+    margin-right: 72%;
 
 }
 
@@ -37,9 +37,10 @@
     cursor: pointer;
     font-size: 20px;
     color: white;
-    border: #FA0BFF solid 1px;
+    border: #FA0BFF solid 3px;
     border-radius: 8%;
     padding: 10px;
+    margin-left: 10px;
 }
 .search-box {
     background-color: black;
