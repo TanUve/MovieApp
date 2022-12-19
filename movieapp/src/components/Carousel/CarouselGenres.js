@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Carousel.css';
-import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import '../../styles/GenreCarousel.css';
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
 function CarouselGenres(movie) {
 
+  const navigate = useNavigate();
   const [genreData, setGenreData] = useState([]);
+  const [genre, setGenre] = useState();
+
 
   useEffect(() => {
     const getGenreData = async () => {
@@ -22,28 +24,15 @@ function CarouselGenres(movie) {
     }
     getGenreData();
   }, [])
-  
 
-
-  /*función para las flechas*/
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", background: "white" }}
-        onClick={onClick}
-      />
-    );
-  }
 
   /*Para el carrusel de las géneros*/
   const settingsGenres = {
     speed: 300,
-    centerPadding: "40px",
+    centerPadding: "10px",
     arrows: true,
-    dots: true,
-    infinite: false,
+    dots: false,
+    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 3,
     initialSlide: 0,
@@ -77,27 +66,22 @@ function CarouselGenres(movie) {
     /*prevArrow: <SamplePrevArrow/>*/
   };
 
+
   return (
-    <div className='carousel_container'>
-      {/*renderizamos el listado de géneros*/}
-      <div>
+      <Slider {...settingsGenres}>
+        {genreData.map((genre) => {
+
+          return (
+
+            <button  className="genreBtn" key={genre.id} onClick={() => { navigate(`genre/${genre.id}/ ${genre.name}`) }}>
+              {genre.name}</button>
+
+          )
+        })
+        }
+      </Slider>
 
 
-        <Slider {...settingsGenres}>
-          {genreData.map((genre) => {
-            return (
-              <Link to={`genre/${genre.id}`}>
-                <button key={genre.id}>{genre.name}</button>
-              </Link>
-
-
-            )
-          })
-          }
-        </Slider>
-
-      </div>
-    </div>
   );
 }
 

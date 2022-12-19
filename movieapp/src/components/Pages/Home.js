@@ -1,19 +1,26 @@
 import React from 'react';
-import CarouselGenres from '../CarouselGenres'
-import CarouselImagenes from '../CarouselImagenes'
+import CarouselGenres from '../Carousel/CarouselGenres'
+import CarouselImagenes from '../Carousel/CarouselImagenes'
 import Buscador from '../search-box/buscador'
-import BtnPremiere from '../BtnPremiere'
-
-
+import BtnPremiere from '../buttons/BtnPremiere'
+import '../../styles/home.css'
 
 function Home() {
 
     return (
-        <div>
-        <Buscador/>
-        <CarouselGenres/>
-        <CarouselImagenes/>
-        <BtnPremiere/>     
+        <div className='home'>
+            <div className='searchHome'>
+                <Buscador />
+            </div>
+            <div className='genresCarousel'>
+                <CarouselGenres />
+            </div>
+            <div className='posterCarousel'>
+                <CarouselImagenes />
+            </div>
+            <div className='btnPrem'>
+                <BtnPremiere />
+            </div>
         </div>
 
 
