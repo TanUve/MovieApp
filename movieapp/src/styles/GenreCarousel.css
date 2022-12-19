@@ -12,10 +12,11 @@
 
 .genreBtn {
     /*padding: 5px 10px !important;*/
-    border: #FA0BFF solid 3px;
-    color: white;
+    /*border: #FA0BFF solid 3px;*/
+    color:  #FA0BFF;
     background-color: black;
     cursor: pointer;
+    font-weight: bold;
 }
 
 

@@ -30,7 +30,7 @@ function Buscador() {
   return (
     <>
       <div id="search">
-        <input type="text" className='col-md-12' placeholder='Search Movie...' style={{ marginTop: 50 }}
+        <input type="text" className='col-md-12' placeholder='Search Movie...'
           onChange={e => onChangeHandler(e.target.value)}
           onBlur={() => {
             setTimeout(() => {

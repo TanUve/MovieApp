@@ -49,3 +49,7 @@
     padding: 1%;
     display: inline-block;
 }
+.buttons{
+    font-size: 18px;
+    font-weight: bold;
+}
