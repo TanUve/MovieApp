@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    color: rgb(250, 11, 255, 1);
+    align-items: center;
+    margin-left: 30px;
+    padding: 10px 0;
+}
+.btnHeader{
+    display: flex;
+    margin-left: 60%;
+}
+
+.logo {
+    width: 240px;
+}
+
+.palomitas {
+    width: 50px;
+}

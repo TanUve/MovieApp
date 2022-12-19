@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/ImageCarousel.css';
+
+
 
 
 function BtnProximamente() {
 
     const navigate = useNavigate();
-    const [showPremiere, setShowPremiere] = useState(true);
     const [premiereData, setPremiereData] = useState([]);
 
     useEffect(() => {
@@ -17,9 +19,6 @@ function BtnProximamente() {
         getPremiereData();
     }, []);
 
-    function GoNewPage() {
-        setShowPremiere(!showPremiere)
-    }
 
     return (
         <>

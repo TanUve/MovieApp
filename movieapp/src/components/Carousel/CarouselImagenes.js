@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 function CarouselImagenes(movie) {
 
   const navigate = useNavigate();
-
   const [moviesData, setMoviesData] = useState([]);
 
   useEffect(() => {

@@ -33,8 +33,8 @@ function CarouselGenres(movie) {
     arrows: true,
     dots: false,
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 3,
+    slidesToShow: 7,
+    slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
       {

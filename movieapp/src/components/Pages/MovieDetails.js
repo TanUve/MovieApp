@@ -1,24 +1,17 @@
-import ReturnButton from '../buttons/ReturnButton';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import axios from 'axios';
+import '../../styles/MovieDetails.css';
 import Rating from '@mui/material/Rating';
-
-// import hooks
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import Header from '../Header.js';
 import HomeButton from '../buttons/HomeButton';
-//import components
-
-
+import ReturnButton from '../buttons/ReturnButton';
 
 function MovieDetails() {
 
-    const [movie, setMovie] = useState([]);
     const { id } = useParams();
+    const [movie, setMovie] = useState([]);
     const urlMovieDetails = `https://api.themoviedb.org/3/movie/${id}?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES`;
-    const urlImg = `https://image.tmdb.org/t/p/original`;
-
-
 
     useEffect(() => {
         const getMovieDetailsData = async () => {
@@ -30,24 +23,33 @@ function MovieDetails() {
     }, [])
 
 
+
     return (
-        <>
-            <ReturnButton />
-            <HomeButton />
-            <div>
-                <img className="poster" src={urlImg + movie.poster_path} alt="SIN IMAGEN DISPONIBLE" width="220px" />
-                <p className='title'>{movie.title}</p>
-                <p>{movie.tagline}</p>
+        <div className='background'>
+            <Header />
 
-                <p>{movie.overview}</p>
-
-                <p className='rating'>{(movie.vote_average / 2).toFixed(1)} / 5</p>
-                <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
+            <div className='titles'>
+                <h1>{movie.title}</h1>
             </div>
-        </>
-    )
-}
+            <div className='movie-card'>
 
+                <div className='images' >
+                    <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className="detailsPoster" />
+                </div>
 
+                <div className='detailsContainer'>
+                    <h4>Rating</h4>
+                    <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
+                    <h4>Reseña</h4>
+                    <div className='divider' />
+                    <h5>{movie.overview}</h5>
+                    <div className='divider' />
+                    <h4>Fecha de Estreno</h4>
+                    <div className='divider' />
+                    <h5>{movie.release_date}</h5>
+                </div>
+            </div>
+        </div>
+    );
+};
 export default MovieDetails;
-

@@ -1,0 +1,12 @@
+footer {
+    background-color: black;
+    margin-top: 450px;
+    padding: 0px 0px;
+}
+
+.footer {
+    color: white;
+    display: grid;
+    font-size: smaller;
+    margin-left: 20px;
+}
