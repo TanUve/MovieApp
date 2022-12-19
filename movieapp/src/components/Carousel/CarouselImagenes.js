@@ -15,7 +15,7 @@ function CarouselImagenes(movie) {
 
   useEffect(() => {
     const getMoviesData = async () => {
-      const respMovies = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=en-EN&with_genres={idgenre}&primary_release_year=2022` + movie.poster_path);
+      const respMovies = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=es-ES&with_genres={idgenre}&primary_release_year=2022` + movie.poster_path);
       setMoviesData(respMovies.data.results);
     }
     getMoviesData();

@@ -70,6 +70,7 @@
     font-family: "Arial";
     text-align: center;
     background-color: #a9a9a987 !important;
+    cursor: pointer;
 }
 
 .title {
