@@ -13,14 +13,14 @@ function Buscador() {
   const onSearchHandler = (movieTitle) => {
     let filtrando = films.find((element) => element.title === movieTitle)
     setMovie(filtrando)
-    //console.log(filtrando)
+
   }
 
   const onChangeHandler = async (text) => {
     if (text && text.length > 2) {
       const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&page=1&include_adult=false&query=${text}`)
       setFilms(response.data.results);
-    } //console.log(films)
+    }
 
   }
   useEffect(() => {
@@ -37,21 +37,23 @@ function Buscador() {
               setFilms([])
             }, 200);
           }} />
-        {films.map((search, i) =>{console.log(1)
-       
-       return <div key={i} className="search col-md-12 justify-content-md-center"
-        onClick={() => { onSearchHandler(search.title)
-        return (navigate(`/ ${search.id}`))
-        }}>{search.title}
+        {films.map((search, i) => {
+          console.log(1)
 
-          {/* // onClick={() => search.length == 1 ? onSearchHandler(search.title) : (search.map(films => onSearchHandler(films.title)))} >{search.title}  */}
+          return <div key={i} className="search col-md-12 justify-content-md-center"
+            onClick={() => {
+              onSearchHandler(search.title)
+              return (navigate(`/ ${search.id}`))
+            }}>{search.title}
+
+            {/* // onClick={() => search.length == 1 ? onSearchHandler(search.title) : (search.map(films => onSearchHandler(films.title)))} >{search.title}  */}
             {console.log(search, "esta es la linea")}
-          <h4 className='text center'>{films.title}</h4>
-        </div>
-      })}
+            <h4 className='text center'>{films.title}</h4>
+          </div>
+        })}
       </div>
       <div>
-      {movie && (<MovieDetails movieObject={movie}/>)}
+        {movie && (<MovieDetails movieObject={movie} />)}
       </div>
     </>
   );

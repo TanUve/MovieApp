@@ -11,9 +11,8 @@
 }
 
 .genreBtn {
-    /*padding: 5px 10px !important;*/
-    /*border: #FA0BFF solid 3px;*/
-    color:  #FA0BFF;
+
+    color: #FA0BFF;
     background-color: black;
     cursor: pointer;
     font-weight: bold;
@@ -30,8 +29,6 @@
     z-index: 99;
 
 }
-
-
 
 .buttons {
     display: block;

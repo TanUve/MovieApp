@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../styles/ImageCarousel.css';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { Component } from "react";
 import Slider from "react-slick";
@@ -14,14 +14,12 @@ function CarouselImagenes(movie) {
 
   useEffect(() => {
     const getMoviesData = async () => {
-      const respMovies = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=es-ES&with_genres={idgenre}&primary_release_year=2022` + movie.poster_path);
+      const respMovies = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=fb1999e69926d1387eb44c3abee6e7c5&language=es-ES&primary_release_year=2022` + movie.poster_path);
       setMoviesData(respMovies.data.results);
     }
     getMoviesData();
   }, []);
-  console.log(moviesData);
 
-  /*Para el carrusel de las imágenes*/
   const settingsMovie = {
     speed: 300,
     arrows: true,
@@ -56,7 +54,7 @@ function CarouselImagenes(movie) {
         }
       }
     ]
-    };
+  };
 
   return (
     <div className='carousel_container'>
@@ -64,7 +62,7 @@ function CarouselImagenes(movie) {
         {moviesData.map((movie) =>
           <div className='moviesImagesDiv'>
             <img
-              src={"https://image.tmdb.org/t/p/original" + movie.poster_path}  className="imgCarousel" width="300px" onClick={() => navigate(`/${movie.id}`)} />
+              src={"https://image.tmdb.org/t/p/original" + movie.poster_path} className="imgCarousel" width="300px" onClick={() => navigate(`/${movie.id}`)} />
           </div>
         )}
       </Slider>

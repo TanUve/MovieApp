@@ -1,15 +1,18 @@
 import React from 'react';
+//import components
 import CarouselGenres from '../Carousel/CarouselGenres'
 import CarouselImagenes from '../Carousel/CarouselImagenes'
+import Header from '../Header';
 import Buscador from '../search-box/buscador'
 import BtnPremiere from '../buttons/BtnPremiere'
+//import styles
 import '../../styles/home.css'
-import Header from '../Header';
 
 function Home() {
 
     return (
         <div className='home'>
+
             <Header />
             <div className='searchHome'>
                 <Buscador />
@@ -26,7 +29,7 @@ function Home() {
 
             </div>
 
-            
+
         </div>
 
 

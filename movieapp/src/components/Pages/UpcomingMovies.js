@@ -14,8 +14,6 @@ import HomeButton from '../buttons/HomeButton';
 import '../../styles/upcomingMovies.css';
 import '../../styles/movieByGenrePage.css';
 
-//const API_KEY = '90c2c57ed9eabcec0ae2b8ebe7b81547';
-
 
 
 function UpcomingMovies() {
@@ -28,7 +26,6 @@ function UpcomingMovies() {
     const urlImg = `https://image.tmdb.org/t/p/original`;
 
 
-    //Obtenemos todas las películas
     useEffect(() => {
         const getMoviesData = async () => {
             const respMovies = await axios.get(urlUpcomingMovies);

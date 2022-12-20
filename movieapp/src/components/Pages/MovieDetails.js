@@ -1,11 +1,13 @@
+import axios from 'axios'
+//import hooks
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import axios from 'axios';
-import '../../styles/MovieDetails.css';
+//import components
 import Rating from '@mui/material/Rating';
 import Header from '../Header.js';
-import HomeButton from '../buttons/HomeButton';
-import ReturnButton from '../buttons/ReturnButton';
+//import styles
+import '../../styles/MovieDetails.css';
+
 
 function MovieDetails() {
 
@@ -17,7 +19,6 @@ function MovieDetails() {
         const getMovieDetailsData = async () => {
             const respMovieDetails = await axios.get(urlMovieDetails);
             setMovie(respMovieDetails.data);
-            console.log(respMovieDetails.data);
         }
         getMovieDetailsData();
     }, [])
@@ -40,7 +41,7 @@ function MovieDetails() {
                 <div className='detailsContainer'>
                     <h4>Rating</h4>
                     <Rating className="ratingComp" name="half-rating-read" value={movie.vote_average / 2} precision={0.1} max={5} readOnly />
-                    <h4>Reseña</h4>
+                    <h4>Sinopsis</h4>
                     <div className='divider' />
                     <h5>{movie.overview}</h5>
                     <div className='divider' />
