@@ -3,9 +3,9 @@ import axios from 'axios';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../../styles/GenreCarousel.css';
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,7 +13,6 @@ function CarouselGenres(movie) {
 
   const navigate = useNavigate();
   const [genreData, setGenreData] = useState([]);
-  const [genre, setGenre] = useState();
 
 
   useEffect(() => {
