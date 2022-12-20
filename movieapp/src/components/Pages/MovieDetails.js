@@ -7,6 +7,7 @@ import Rating from '@mui/material/Rating';
 import Header from '../Header.js';
 //import styles
 import '../../styles/MovieDetails.css';
+import HeaderWithBtns from '../HeaderWithBtns.js';
 
 
 function MovieDetails() {
@@ -27,7 +28,7 @@ function MovieDetails() {
 
     return (
         <div className='background'>
-            <Header />
+            <HeaderWithBtns />
 
             <div className='titles'>
                 <h1>{movie.title}</h1>

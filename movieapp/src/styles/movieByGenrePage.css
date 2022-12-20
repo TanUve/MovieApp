@@ -14,7 +14,7 @@
     display: flex;
     color: white;
     size: 10px;
-    padding: 30px 0 0 30px;
+    margin: 30px 0 0 55px;
     
 
 }
@@ -45,6 +45,7 @@
 }
 .search-box {
     background-color: black;
+    margin: 30px;
 }
 
 .container {

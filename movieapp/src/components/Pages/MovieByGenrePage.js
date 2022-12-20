@@ -8,9 +8,11 @@ import ReturnButton from '../buttons/ReturnButton';
 import HomeButton from '../buttons/HomeButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
+import HeaderWithBtns from '../HeaderWithBtns';
 //Import css
 import '../../styles/movieByGenrePage.css';
 import '../../styles/buscador.css'
+import '../../styles/HeaderWithBtns.css';
 
 
 
@@ -38,18 +40,17 @@ function MovieByGenrePage() {
 
     return (
         <>
-            <header className="header">Movies</header>
-            <div className='movieListHeader'>
-
-                <h1 className='genre'>|{name} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
-                <HomeButton />
-                <ReturnButton />
+            <div className='headerBtns '>
+                <HeaderWithBtns />
             </div>
             <div className='search-box'>
                 <Buscador />
             </div>
+            <div className='movieListHeader'>
 
+                <h1 className='genre'>|{name} <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
 
+            </div>
             <div className='container'>
 
                 {movies.map((movie) =>
