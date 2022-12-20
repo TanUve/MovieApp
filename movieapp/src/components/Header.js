@@ -9,8 +9,8 @@ const Header = () => {
       <img className='logo' src={logo} width="50px" />
       <img className='palomitas' src='https://cdn-icons-png.flaticon.com/512/3507/3507102.png' />
       <div className='btnHeader'>
-       <HomeButton />
-      <ReturnButton />
+        <HomeButton />
+        <ReturnButton />
       </div>
     </header>)
 }

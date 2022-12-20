@@ -5,17 +5,17 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 //import components
 import ReturnButton from '../buttons/ReturnButton';
+import HomeButton from '../buttons/HomeButton';
 import Buscador from '../search-box/buscador';
 import Rating from '@mui/material/Rating';
 //Import css
 import '../../styles/movieByGenrePage.css';
 import '../../styles/buscador.css'
-import HomeButton from '../buttons/HomeButton';
 
 
 
 
-function MovieByGenrePage(props) {
+function MovieByGenrePage() {
 
     const navigate = useNavigate();
 
@@ -27,7 +27,6 @@ function MovieByGenrePage(props) {
     const urlMovies = `https://api.themoviedb.org/3/discover/movie?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&with_genres=${id}&primary_release_year=2022&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
 
-    //Obtenemos todas las películas
     useEffect(() => {
         const getMoviesData = async () => {
             const respMovies = await axios.get(urlMovies);
@@ -95,5 +94,3 @@ function MovieByGenrePage(props) {
 
 export default MovieByGenrePage;
 
-
-/*API_KEY='90c2c57ed9eabcec0ae2b8ebe7b81547';*/

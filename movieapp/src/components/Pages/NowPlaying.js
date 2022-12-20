@@ -17,7 +17,7 @@ import '../../styles/buscador.css'
 
 
 
-function NowPlaying(props) {
+function NowPlaying() {
 
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
@@ -27,13 +27,6 @@ function NowPlaying(props) {
     const urlMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=90c2c57ed9eabcec0ae2b8ebe7b81547&language=es-ES&page=${pages}`;
     const urlImg = `https://image.tmdb.org/t/p/original`;
 
-
-
-    //const navigate = useNavigate();
-
-
-
-    //Obtenemos todas las películas
     useEffect(() => {
         const getMoviesData = async () => {
             const respMovies = await axios.get(urlMovies);
@@ -44,7 +37,6 @@ function NowPlaying(props) {
 
     return (
         <>
-            <header className="header">Movies</header>
             <div className='nowPlayingHeader'>
                 <h1 className='nowPlaying'>| Cartelera <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
                 <HomeButton />
@@ -100,4 +92,3 @@ function NowPlaying(props) {
 export default NowPlaying;
 
 
-/*API_KEY='90c2c57ed9eabcec0ae2b8ebe7b81547';*/

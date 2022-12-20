@@ -3,13 +3,17 @@
     font-size: 12px;
     background-color: black;
     padding: 30px;
+    position: relative;
+
 
 }
 
 
 .search:hover {
     opacity: .6;
-
+    background-color: rgba(193, 193, 193, 0.338);
+    
+    
 }
 
 .col-md-12::before {
@@ -29,8 +33,10 @@
     padding: 10px;
     margin-left: 30px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     color: #FA0BFF;
+    position: relative;
+    
 }
 input{
     border: #FA0BFF solid 1px;
