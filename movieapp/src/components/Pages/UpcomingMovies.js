@@ -13,6 +13,7 @@ import HomeButton from '../buttons/HomeButton';
 //Import css
 import '../../styles/upcomingMovies.css';
 import '../../styles/movieByGenrePage.css';
+import HeaderWithBtns from '../HeaderWithBtns';
 
 
 
@@ -37,16 +38,16 @@ function UpcomingMovies() {
 
     return (
         <>
-            <header className="header">Movies</header>
-            <div className='upcomingHeader'>
-                <h1 className='upcoming'>| Próximos estrenos <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
-                <HomeButton />
-
-                <ReturnButton />
+            <div className='headerBtns '>
+                <HeaderWithBtns />
             </div>
             <div className='search-box'>
                 <Buscador />
             </div>
+            <div className='upcomingHeader'>
+                <h1 className='upcoming'>| Próximos estrenos <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+            </div>
+
 
 
             <div className='container'>

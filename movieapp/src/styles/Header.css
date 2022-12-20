@@ -1,20 +1,19 @@
-header {
-    display: flex;
+.headerHome {
     color: rgb(250, 11, 255, 1);
-    align-items: center;
-    margin-left: 30px;
+    text-align: center;
+    margin-top: 40px;
     padding: 10px 0;
 }
-.btnHeader{
+
+.btnHeader {
     display: flex;
     margin-left: 60%;
 }
 
 .logo {
     width: 240px;
-    margin-left: 10px;
 }
 
 .palomitas {
-    width: 50px;
+    width: 70px;
 }

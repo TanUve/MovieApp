@@ -10,6 +10,7 @@ import Rating from '@mui/material/Rating';
 import '../../styles/topRated.css';
 import { useNavigate } from 'react-router-dom';
 import HomeButton from '../buttons/HomeButton';
+import HeaderWithBtns from '../HeaderWithBtns';
 
 
 
@@ -35,15 +36,16 @@ function TopRatedPage() {
 
     return (
         <>
-            <header className="header">Movies</header>
-            <div className='topRatedHeader'>
-                <h1 className='topRated'>|Mejor Valoradass <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
-                <HomeButton />
-                <ReturnButton />
+            <div className='headerBtns '>
+                <HeaderWithBtns />
             </div>
             <div className='search-box'>
                 <Buscador />
             </div>
+            <div className='topRatedHeader'>
+                <h1 className='topRated'>|Mejor Valoradass <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
+            </div>
+
 
 
             <div className='container'>

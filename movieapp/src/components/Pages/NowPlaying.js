@@ -13,6 +13,7 @@ import HomeButton from '../buttons/HomeButton';
 import '../../styles/movieByGenrePage.css';
 import '../../styles/nowPlaying.css';
 import '../../styles/buscador.css'
+import HeaderWithBtns from '../HeaderWithBtns';
 
 
 
@@ -37,16 +38,16 @@ function NowPlaying() {
 
     return (
         <>
-            <div className='nowPlayingHeader'>
-                <h1 className='nowPlaying'>| Cartelera <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
-                <HomeButton />
-                <ReturnButton />
+            <div className='headerBtns '>
+                <HeaderWithBtns />
             </div>
             <div className='search-box'>
                 <Buscador />
             </div>
+            <div className='nowPlayingHeader'>
+                <h1 className='nowPlaying'>| Cartelera <img src='https://cdn-icons-png.flaticon.com/512/8893/8893034.png' width="19px" /></h1>
 
-
+            </div>
             <div className='container'>
 
                 {movies.map((movie) =>
