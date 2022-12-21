@@ -77,7 +77,7 @@ function UpcomingMovies() {
                 </button>
 
                 <p id='page' >
-                    {pages < 0 ? pages : pages} de 5
+                    {pages} de 5
                 </p>
 
                 <button id='next' onClick={() => {
